@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dto.in.ShoeFilter;
 import com.example.demo.dto.out.Shoes;
 import com.example.demo.facade.ShoeFacade;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,7 @@ public class ShoeController {
 
   private final ShoeFacade shoeFacade;
 
+  @ApiOperation(value = "Search shoe in the stock", response = String.class)
   @GetMapping(path = "/search")
   public ResponseEntity<Shoes> all(ShoeFilter filter, @RequestHeader Integer version){
 
